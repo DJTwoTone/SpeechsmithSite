@@ -1,0 +1,103 @@
+---
+const { name, image, description, price } = Astro.props;
+
+function formatNumber(x) {
+  return new Intl.NumberFormat("en-US").format(x);
+}
+
+const formattedPrice = formatNumber(price);
+---
+
+<div class="service-card">
+  <div class="tape"></div>
+  <!-- Scotch tape effect -->
+  <h3 class="service-name">{name}</h3>
+  <div class="service-body">
+    <img src={image} alt={name} class="service-image" />
+    <p class="service-description">{description}</p>
+  </div>
+  <p class="service-price">₩{formattedPrice}</p>
+</div>
+
+<style>
+  .service-card {
+    background-color: white; /* Paper color */
+    color: black;
+    border: 1px solid black; /* For the neo-brutalist effect */
+    padding: 15px;
+    position: relative;
+    margin: 50px;
+    width: 300px; /* Adjust as needed */
+  }
+
+  .service-name {
+    color: red; /* Adjust colors as needed */
+    margin-bottom: 15px;
+  }
+
+  .service-body {
+    display: flex;
+    gap: 30px;
+  }
+
+  .service-image {
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Keep aspect ratio */
+  }
+
+  .service-description {
+    flex-grow: 1;
+  }
+
+  .service-price {
+    color: yellow;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+
+  /* Scotch tape effect */
+  .tape {
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    width: 50px;
+    height: 10px;
+    background-color: #f5f5dc; /* Scotch tape color */
+    border: 1px solid #e0e0d1;
+    transform: rotate(-30deg);
+  }
+
+  /* Subtle wiggle animation on hover */
+  .service-card:hover {
+    animation: wiggle 0.3s ease-in-out;
+  }
+
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-1deg);
+    }
+    50% {
+      transform: rotate(1deg);
+    }
+  }
+
+  /* Responsive design */
+  @media (min-width: 768px) {
+    .service-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 cards in a row */
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .service-container {
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card {
+      width: 100%; /* Full width for mobile */
+    }
+  }
+</style>

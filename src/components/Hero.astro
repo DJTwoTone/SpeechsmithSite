@@ -3,22 +3,50 @@
 ---
 
 <section id="hero">
-  <img
-    id="hero__sam-img"
-    src="/SamtheSpeechsmith.svg"
-    alt="Sam the Speech Smith"
-  />
+  <div class="fire-glow">
+    <img
+      id="hero__sam-img"
+      src="/SamtheSpeechsmith.svg"
+      alt="Sam the Speech Smith"
+    />
+  </div>
 </section>
 
 <style>
   #hero {
     height: 640px;
     width: auto;
-
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
     background-image: url(/woodpaneling.png);
     background-repeat: repeat;
     background-size: 30%;
+    padding-right: 5%;
+  }
+
+  .fire-glow {
+    /* display: inline-block; */
+    height: 90%;
+    filter: drop-shadow(0 0 10px red); /* Initial glow */
+    animation: fire-glow-animation 10s infinite;
+  }
+
+  #hero__sam-img {
+    height: 100%;
+  }
+
+  @keyframes fire-glow-animation {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 10px red); /* Red glow */
+    }
+    25%,
+    75% {
+      filter: drop-shadow(0 0 13px orange); /* Intense orange glow */
+    }
+    50% {
+      filter: drop-shadow(0 0 15px yellow);
+    }
   }
 </style>
