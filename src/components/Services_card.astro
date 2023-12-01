@@ -21,17 +21,21 @@ const formattedPrice = formatNumber(price);
 
 <style>
   .service-card {
+    font-family: "Urbanist", sans-serif;
     background-color: white; /* Paper color */
-    color: black;
-    border: 1px solid black; /* For the neo-brutalist effect */
+    color: var(--black);
+    border: 8px solid var(--black); /* For the neo-brutalist effect */
     padding: 15px;
     position: relative;
     margin: 50px;
-    width: 300px; /* Adjust as needed */
+    width: 400px; /* Adjust as needed */
+    transform-origin: left top;
+    border-radius: 25px;
   }
 
   .service-name {
-    color: red; /* Adjust colors as needed */
+    color: var(--red); /* Adjust colors as needed */
+    font-size: 1.5rem;
     margin-bottom: 15px;
   }
 
@@ -41,16 +45,26 @@ const formattedPrice = formatNumber(price);
   }
 
   .service-image {
-    width: 100px; /* Adjust as needed */
-    height: 100px; /* Keep aspect ratio */
+    width: 120px; /* Adjust as needed */
+    height: 120px; /* Keep aspect ratio */
+    border-radius: 25px;
+    box-shadow: var(--orange) 12px 12px 0 0;
+  }
+
+  .description-wrapper {
   }
 
   .service-description {
+    font-family: "Josefin Sans", sans-serif;
+    border-radius: 25px;
+    box-shadow: var(--black) 12px 12px 0 0;
     flex-grow: 1;
+    padding: 10px;
+    background-color: var(--beige);
   }
 
   .service-price {
-    color: yellow;
+    color: var(--yellow);
     font-weight: bold;
     margin-top: 15px;
   }
@@ -59,8 +73,8 @@ const formattedPrice = formatNumber(price);
   .tape {
     position: absolute;
     top: -5px;
-    left: 10px;
-    width: 50px;
+    left: -20px;
+    width: 70px;
     height: 10px;
     background-color: #f5f5dc; /* Scotch tape color */
     border: 1px solid #e0e0d1;
@@ -75,10 +89,10 @@ const formattedPrice = formatNumber(price);
   @keyframes wiggle {
     0%,
     100% {
-      transform: rotate(-1deg);
+      transform: rotate(2deg);
     }
     50% {
-      transform: rotate(1deg);
+      transform: rotate(4deg);
     }
   }
 
