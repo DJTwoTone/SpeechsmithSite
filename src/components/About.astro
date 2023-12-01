@@ -110,6 +110,7 @@
     background-size: cover;
     padding: 50px 0;
     color: #333; /* A dark color for contrast */
+    font-family: "Josefin Sans", sans-serif;
   }
 
   .about-us .container {
@@ -119,31 +120,41 @@
   }
 
   .about-us h2 {
-    color: #7b2d26; /* A color that stands out against the parchment */
+    color: var(--red); /* A color that stands out against the parchment */
     text-align: center;
+    background-color: var(--black);
     margin-bottom: 30px;
+    font-family: "Urbanist", sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    border-radius: 25px;
+    box-shadow: 12px 12px 0 0 white;
   }
 
   .about-us h3 {
-    color: #7b2d26; /* Same as the main heading for consistency */
+    font-family: "Urbanist", sans-serif;
+    color: var(--red); /* Same as the main heading for consistency */
+    font-size: 2rem;
+    background-color: var(--beige);
     margin-top: 20px;
+    padding-right: 10%;
+    text-align: right;
+    border-radius: 25px 25px 0 0;
   }
 
   .about-us p {
-    background-color: rgba(
-      255,
-      255,
-      255,
-      0.8
-    ); /* Slightly transparent white for readability */
+    background-color: var(--beige);
     padding: 15px;
-    border-left: 5px solid #7b2d26; /* Adds a touch of design without being overwhelming */
     margin-bottom: 20px;
+    font-size: 1.2rem;
+    border-radius: 0 0 25px 25px;
+    box-shadow: -12px 12px 0 0 var(--orange);
   }
 
   .about-illustration {
-    width: 100%;
+    height: 100%;
     aspect-ratio: auto;
+    border-radius: 25px;
   }
 
   /* Storytelling Animation */
@@ -166,12 +177,13 @@
   /* Placeholder for Illustration */
   .illustration-placeholder {
     height: 150px; /* Set desired height */
-    background-color: #eaeaea; /* Placeholder color */
+    /* background-color: #eaeaea; Placeholder color */
     margin: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     font-style: italic;
+    border-radius: 25px;
     /* Add more styles as needed */
   }
 

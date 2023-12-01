@@ -24,7 +24,7 @@ const formattedPrice = formatNumber(price);
     font-family: "Urbanist", sans-serif;
     background-color: white; /* Paper color */
     color: var(--black);
-    border: 8px solid var(--black); /* For the neo-brutalist effect */
+    border: 8px solid var(--red); /* For the neo-brutalist effect */
     padding: 15px;
     position: relative;
     margin: 50px;
@@ -34,9 +34,10 @@ const formattedPrice = formatNumber(price);
   }
 
   .service-name {
-    color: var(--red); /* Adjust colors as needed */
+    color: var(--yellow); /* Adjust colors as needed */
     font-size: 1.5rem;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    font-weight: 700;
   }
 
   .service-body {
@@ -48,7 +49,7 @@ const formattedPrice = formatNumber(price);
     width: 120px; /* Adjust as needed */
     height: 120px; /* Keep aspect ratio */
     border-radius: 25px;
-    box-shadow: var(--orange) 12px 12px 0 0;
+    box-shadow: 12px 12px 0 0 var(--orange);
   }
 
   .description-wrapper {
@@ -57,16 +58,19 @@ const formattedPrice = formatNumber(price);
   .service-description {
     font-family: "Josefin Sans", sans-serif;
     border-radius: 25px;
-    box-shadow: var(--black) 12px 12px 0 0;
+    box-shadow: 12px -12px 0 0 var(--black);
     flex-grow: 1;
-    padding: 10px;
+    padding: 10px 10px 10px 15px;
     background-color: var(--beige);
+    font-size: 1rem;
   }
 
   .service-price {
     color: var(--yellow);
     font-weight: bold;
-    margin-top: 15px;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 25px;
   }
 
   /* Scotch tape effect */
