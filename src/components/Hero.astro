@@ -3,13 +3,17 @@
 ---
 
 <section id="hero">
+  <div class="speech-bubble pointillism">
+    <h1>Polish Your Presentation, Perfect Your Pitch</h1>
+  </div>
   <div class="fire-glow">
     <img
       id="hero__sam-img"
       src="/SamtheSpeechsmith.svg"
-      alt="Sam the Speech Smith"
+      alt="Sam the Speechsmith"
     />
   </div>
+  <button>Book a Consultation NOW</button>
 </section>
 
 <style>
@@ -34,6 +38,39 @@
 
   #hero__sam-img {
     height: 100%;
+  }
+
+  .speech-bubble {
+    align-self: center;
+    justify-self: flex-end;
+    position: relative;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    color: black;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
+  }
+  /* Create the tail */
+  .speech-bubble:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+  }
+
+  /* Apply the pointillist effect */
+  .pointillism {
+    background: radial-gradient(circle, #000000 10%, transparent 10%),
+      radial-gradient(circle, #ffffff 10%, transparent 10%);
+    background-size: 10px 10px;
+    background-position:
+      0 0,
+      5px 5px;
   }
 
   @keyframes fire-glow-animation {

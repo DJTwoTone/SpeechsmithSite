@@ -6,6 +6,12 @@ function formatNumber(x) {
 }
 
 const formattedPrice = formatNumber(price);
+
+function randomShakePoint() {
+  return Math.random() * 80 + 1 
+}
+
+let shakePoint = randomShakePoint();
 ---
 
 <div class="service-card">
@@ -77,7 +83,7 @@ const formattedPrice = formatNumber(price);
   .tape {
     position: absolute;
     top: -5px;
-    left: -20px;
+    left: calc({shakePoint}% - 20px);
     width: 70px;
     height: 10px;
     background-color: #f5f5dc; /* Scotch tape color */
@@ -88,6 +94,7 @@ const formattedPrice = formatNumber(price);
   /* Subtle wiggle animation on hover */
   .service-card:hover {
     animation: wiggle 0.3s ease-in-out;
+    transform-origin: {shakePoint}% 15%;
   }
 
   @keyframes wiggle {
