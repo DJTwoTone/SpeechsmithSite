@@ -1,5 +1,5 @@
 ---
-const { name, image, description, price } = Astro.props;
+const { name, image, description, price, id, key } = Astro.props;
 
 function formatNumber(x) {
   return new Intl.NumberFormat("en-US").format(x);
@@ -12,10 +12,11 @@ function randomShakePoint() {
 }
 
 let shakePoint = randomShakePoint();
+
 ---
 
-<div class="service-card">
-  <div class="tape"></div>
+<div class="service-card" id={id} data-shake-point={shakePoint}>
+  <div class="tape" style=`left: calc(${shakePoint}% - 20px);`></div>
   <!-- Scotch tape effect -->
   <h3 class="service-name">{name}</h3>
   <div class="service-body">
@@ -24,6 +25,18 @@ let shakePoint = randomShakePoint();
   </div>
   <p class="service-price">₩{formattedPrice}</p>
 </div>
+
+
+<script>
+const cardHoverId = document.getElementsByClassName(`service-card`)[0].id;
+const cardHover = document.getElementById(`${cardHoverId}`);
+const shakePoint = document.getElementById(`${cardHoverId}`).dataset.shakePoint;
+
+cardHover.onmouseover = () => cardHover.style.transformOrigin = `${shakePoint}% 15%`;
+cardHover.onmouseout = () => cardHover.style.transformOrigin = 'top left';
+
+
+</script>
 
 <style>
   .service-card {

@@ -3,17 +3,25 @@
 ---
 
 <section id="hero">
-  <div class="speech-bubble pointillism">
-    <h1>Polish Your Presentation, Perfect Your Pitch</h1>
+  <div id="hero-left">
+    <img
+      src="speechsmith-tv.png"
+      alt="Speechmith brand television"
+      id="speechsmith-tv"
+    />
   </div>
-  <div class="fire-glow">
+  <div id="hero-right">
+    <h1>Polish Your Presentation, Perfect Your Pitch</h1>
+    <button>Book a Consultation NOW</button>
+  </div>
+
+  <!-- <div class="fire-glow">
     <img
       id="hero__sam-img"
       src="/SamtheSpeechsmith.svg"
       alt="Sam the Speechsmith"
     />
-  </div>
-  <button>Book a Consultation NOW</button>
+  </div> -->
 </section>
 
 <style>
@@ -21,26 +29,37 @@
     height: 640px;
     width: auto;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: space-around;
+    align-items: center;
     background-image: url(/woodpaneling.png);
     background-repeat: repeat;
     background-size: 30%;
     padding-right: 5%;
   }
 
-  .fire-glow {
-    /* display: inline-block; */
-    height: 90%;
-    filter: drop-shadow(0 0 10px red); /* Initial glow */
-    animation: fire-glow-animation 10s infinite;
-  }
-
-  #hero__sam-img {
+  #hero-left {
     height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
   }
 
-  .speech-bubble {
+  #speechsmith-tv {
+    height: 90%;
+  }
+
+  /* .fire-glow {
+    
+    height: 90%;
+    filter: drop-shadow(0 0 10px red); 
+    animation: fire-glow-animation 10s infinite;
+  } */
+
+  /* #hero__sam-img {
+    height: 100%;
+  } */
+
+  /* .speech-bubble {
     align-self: center;
     justify-self: flex-end;
     position: relative;
@@ -51,9 +70,9 @@
     text-align: center;
     color: black;
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
-  }
+  } */
   /* Create the tail */
-  .speech-bubble:after {
+  /* .speech-bubble:after {
     content: "";
     position: absolute;
     bottom: -10px;
@@ -61,29 +80,29 @@
     border-width: 10px;
     border-style: solid;
     border-color: white transparent transparent transparent;
-  }
+  } */
 
   /* Apply the pointillist effect */
-  .pointillism {
+  /* .pointillism {
     background: radial-gradient(circle, #000000 10%, transparent 10%),
       radial-gradient(circle, #ffffff 10%, transparent 10%);
     background-size: 10px 10px;
     background-position:
       0 0,
       5px 5px;
-  }
+  } */
 
-  @keyframes fire-glow-animation {
+  /* @keyframes fire-glow-animation {
     0%,
     100% {
-      filter: drop-shadow(0 0 10px red); /* Red glow */
+      filter: drop-shadow(0 0 10px red); 
     }
     25%,
     75% {
-      filter: drop-shadow(0 0 13px orange); /* Intense orange glow */
+      filter: drop-shadow(0 0 13px orange); 
     }
     50% {
       filter: drop-shadow(0 0 15px yellow);
     }
-  }
+  } */
 </style>
