@@ -3,17 +3,14 @@
 ---
 
 <section id="hero">
-  <div id="hero-left">
-    <img
-      src="speechsmith-tv.png"
-      alt="Speechmith brand television"
-      id="speechsmith-tv"
-    />
-  </div>
-  <div id="hero-right">
-    <h1>Polish Your Presentation, Perfect Your Pitch</h1>
-    <button>Book a Consultation NOW</button>
-  </div>
+  <img
+    src="speechsmith-tv.png"
+    alt="Speechmith brand television"
+    id="speechsmith-tv"
+  />
+
+  <h1 id="hero-heading">Polish Your Presentation, Perfect Your Pitch</h1>
+  <button id="hero-btn">Book a Consultation NOW</button>
 
   <!-- <div class="fire-glow">
     <img
@@ -28,24 +25,43 @@
   #hero {
     height: 640px;
     width: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+      "tv hero-heading"
+      "tv hero-btn";
     background-image: url(/woodpaneling.png);
     background-repeat: repeat;
     background-size: 30%;
-    padding-right: 5%;
   }
 
-  #hero-left {
+  /* #hero-left {
     height: 100%;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-  }
+  } */
 
   #speechsmith-tv {
-    height: 90%;
+    height: 80%;
+    grid-area: tv;
+    align-self: center;
+    justify-self: center;
+  }
+
+  #hero-heading {
+    grid-area: hero-heading;
+    font-size: 3rem;
+    align-self: center;
+    justify-self: center;
+    /* display: inline-block; */
+    background-color: white;
+    border-radius: 40px;
+  }
+
+  #hero-btn {
+    grid-area: hero-btn;
   }
 
   /* .fire-glow {

@@ -8,16 +8,18 @@ function formatNumber(x) {
 const formattedPrice = formatNumber(price);
 
 function randomShakePoint() {
-  return Math.random() * 80 + 1 
+  return Math.random() * 80 + 1;
 }
 
 let shakePoint = randomShakePoint();
-
 ---
 
 <div class="service-card" id={id} data-shake-point={shakePoint}>
-  <div class="tape" style=`left: calc(${shakePoint}% - 20px);`></div>
+  <div class="tape-left"></div>
+  <div class="tape-right"></div>
   <!-- Scotch tape effect -->
+  <!-- <div class="thumbtack"></div> -->
+
   <h3 class="service-name">{name}</h3>
   <div class="service-body">
     <img src={image} alt={name} class="service-image" />
@@ -26,17 +28,16 @@ let shakePoint = randomShakePoint();
   <p class="service-price">₩{formattedPrice}</p>
 </div>
 
+<!-- <script>
+  const cardHoverId = document.getElementsByClassName(`service-card`)[0].id;
+  const cardHover = document.getElementById(`${cardHoverId}`);
+  const shakePoint = document.getElementById(`${cardHoverId}`).dataset
+    .shakePoint;
 
-<script>
-const cardHoverId = document.getElementsByClassName(`service-card`)[0].id;
-const cardHover = document.getElementById(`${cardHoverId}`);
-const shakePoint = document.getElementById(`${cardHoverId}`).dataset.shakePoint;
-
-cardHover.onmouseover = () => cardHover.style.transformOrigin = `${shakePoint}% 15%`;
-cardHover.onmouseout = () => cardHover.style.transformOrigin = 'top left';
-
-
-</script>
+  cardHover.onmouseover = () =>
+    (cardHover.style.transformOrigin = `${shakePoint}% 15%`);
+  cardHover.onmouseout = () => (cardHover.style.transformOrigin = "top left");
+</script> -->
 
 <style>
   .service-card {
@@ -93,7 +94,7 @@ cardHover.onmouseout = () => cardHover.style.transformOrigin = 'top left';
   }
 
   /* Scotch tape effect */
-  .tape {
+  .tape-left {
     position: absolute;
     top: -5px;
     left: calc({shakePoint}% - 20px);
@@ -103,12 +104,22 @@ cardHover.onmouseout = () => cardHover.style.transformOrigin = 'top left';
     border: 1px solid #e0e0d1;
     transform: rotate(-30deg);
   }
+  .tape-right {
+    position: absolute;
+    top: -5px;
+    right: calc({shakePoint}% - 20px);
+    width: 70px;
+    height: 10px;
+    background-color: #f5f5dc; /* Scotch tape color */
+    border: 1px solid #e0e0d1;
+    transform: rotate(-30deg);
+  }
 
   /* Subtle wiggle animation on hover */
-  .service-card:hover {
+  /* .service-card:hover {
     animation: wiggle 0.3s ease-in-out;
     transform-origin: {shakePoint}% 15%;
-  }
+  } */
 
   @keyframes wiggle {
     0%,
