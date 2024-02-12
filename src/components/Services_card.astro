@@ -1,63 +1,96 @@
 ---
-const { name, image, description, price, id, key } = Astro.props;
+const {
+  name,
+  image,
+  description,
+  price,
+  id,
+  cardx,
+  cardy,
+  mag1x,
+  mag1y,
+  mag2x,
+  mag2y,
+  key,
+} = Astro.props;
 
 function formatNumber(x) {
   return new Intl.NumberFormat("en-US").format(x);
 }
 
 const formattedPrice = formatNumber(price);
-
-function randomShakePoint() {
-  return Math.random() * 80 + 1;
-}
-
-let shakePoint = randomShakePoint();
+console.log(name, image, cardx, mag1y);
 ---
 
-<div class="service-card" id={id} data-shake-point={shakePoint}>
-  <div class="tape-left"></div>
-  <div class="tape-right"></div>
-  <!-- Scotch tape effect -->
-  <!-- <div class="thumbtack"></div> -->
-
-  <h3 class="service-name">{name}</h3>
-  <div class="service-body">
-    <img src={image} alt={name} class="service-image" />
-    <p class="service-description">{description}</p>
+<div class="service-card" id={id}>
+  <div id="mag-holder">
+    <div id="mag1" class="mag"></div>
+    <div id="mag2" class="mag"></div>
   </div>
-  <p class="service-price">₩{formattedPrice}</p>
+  <div class="card-content">
+    <h3 class="service-name">{name}</h3>
+    <div class="service-body">
+      <img src={image} alt={name} class="service-image" />
+      <p class="service-description">{description}</p>
+    </div>
+    <p class="service-price">₩{formattedPrice}</p>
+  </div>
 </div>
 
-<!-- <script>
-  const cardHoverId = document.getElementsByClassName(`service-card`)[0].id;
-  const cardHover = document.getElementById(`${cardHoverId}`);
-  const shakePoint = document.getElementById(`${cardHoverId}`).dataset
-    .shakePoint;
-
-  cardHover.onmouseover = () =>
-    (cardHover.style.transformOrigin = `${shakePoint}% 15%`);
-  cardHover.onmouseout = () => (cardHover.style.transformOrigin = "top left");
-</script> -->
-
-<style>
+<style define:vars={{ mag1x, mag1y, mag2x, mag2y, cardx, cardy }}>
   .service-card {
     font-family: "Urbanist", sans-serif;
     background-color: white; /* Paper color */
     color: var(--black);
     border: 8px solid var(--red); /* For the neo-brutalist effect */
-    padding: 15px;
     position: relative;
     margin: 50px;
     width: 400px; /* Adjust as needed */
     transform-origin: left top;
     border-radius: 25px;
+    left: var(--cardx);
+    top: var(--cardy);
   }
 
   .service-name {
     color: var(--yellow); /* Adjust colors as needed */
     font-size: 1.5rem;
+    margin-left: 40px;
     margin-bottom: 25px;
     font-weight: 700;
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+
+  #mag-holder {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .mag {
+    position: absolute;
+    height: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 5px solid var(--yellow);
+    box-shadow: 4px 4px 8px 0 var(--black);
+    background-color: white;
+  }
+
+  #mag1 {
+    left: var(--mag1x);
+    top: var(--mag1y);
+  }
+
+  #mag2 {
+    right: var(--mag2x);
+    bottom: var(--mag2y);
   }
 
   .service-body {
@@ -70,9 +103,6 @@ let shakePoint = randomShakePoint();
     height: 120px; /* Keep aspect ratio */
     border-radius: 25px;
     box-shadow: 12px 12px 0 0 var(--orange);
-  }
-
-  .description-wrapper {
   }
 
   .service-description {
@@ -91,44 +121,6 @@ let shakePoint = randomShakePoint();
     font-size: 1.5rem;
     text-align: center;
     margin-top: 25px;
-  }
-
-  /* Scotch tape effect */
-  .tape-left {
-    position: absolute;
-    top: -5px;
-    left: calc({shakePoint}% - 20px);
-    width: 70px;
-    height: 10px;
-    background-color: #f5f5dc; /* Scotch tape color */
-    border: 1px solid #e0e0d1;
-    transform: rotate(-30deg);
-  }
-  .tape-right {
-    position: absolute;
-    top: -5px;
-    right: calc({shakePoint}% - 20px);
-    width: 70px;
-    height: 10px;
-    background-color: #f5f5dc; /* Scotch tape color */
-    border: 1px solid #e0e0d1;
-    transform: rotate(-30deg);
-  }
-
-  /* Subtle wiggle animation on hover */
-  /* .service-card:hover {
-    animation: wiggle 0.3s ease-in-out;
-    transform-origin: {shakePoint}% 15%;
-  } */
-
-  @keyframes wiggle {
-    0%,
-    100% {
-      transform: rotate(2deg);
-    }
-    50% {
-      transform: rotate(4deg);
-    }
   }
 
   /* Responsive design */

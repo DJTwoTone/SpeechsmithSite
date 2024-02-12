@@ -10,7 +10,9 @@
   />
 
   <h1 id="hero-heading">Polish Your Presentation, Perfect Your Pitch</h1>
-  <button id="hero-btn">Book a Consultation NOW</button>
+  <div id="btn-area">
+    <button id="hero-btn">Book a Consultation NOW</button>
+  </div>
 
   <!-- <div class="fire-glow">
     <img
@@ -30,7 +32,7 @@
     grid-template-rows: 50% 50%;
     grid-template-areas:
       "tv hero-heading"
-      "tv hero-btn";
+      "tv hero-area";
     background-image: url(/woodpaneling.png);
     background-repeat: repeat;
     background-size: 30%;
@@ -60,8 +62,10 @@
     border-radius: 40px;
   }
 
-  #hero-btn {
-    grid-area: hero-btn;
+  #hero-area {
+    grid-area: hero-area;
+    align-content: center;
+    justify-content: center;
   }
 
   /* .fire-glow {

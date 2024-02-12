@@ -3,14 +3,14 @@
 ---
 
 <nav>
-  <ul class="nav-center">
-    <li>Services</li>
-    <li>About Us</li>
-    <li>Testimonials</li>
+  <ul class="nav-menu">
+    <li><a href="#">Services</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Testimonials</a></li>
     <img id="nav__center-img" src="/SpeechsmithsForgeLogoV1-2.svg" alt="" />
-    <li>The Blog</li>
-    <li>Our Process</li>
-    <li>Book Now</li>
+    <li><a href="#">The Blog</a></li>
+    <li><a href="#">Our Process</a></li>
+    <li><a href="#">Book Now</a></li>
   </ul>
 </nav>
 
@@ -25,7 +25,7 @@
     justify-content: center;
   }
 
-  .nav-center {
+  .nav-menu {
     width: 75%;
     height: 64px;
     border-radius: 32px;
@@ -34,11 +34,17 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    list-style: none;
   }
 
-  .nav-center li {
-    list-style: none;
-    font-size: 1.8rem;
+  .nav-menu a {
+    display: block;
+    padding: 10px;
+    font-size: clamp(1rem, 2vw, 2rem);
+    text-decoration: none;
+    color: var(--black);
+    text-align: center;
+    line-height: 1.5rem;
   }
 
   #nav__center-img {
