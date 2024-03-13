@@ -1,7 +1,43 @@
 ---
-
+// Import the TestimonialCard component
+import TestimonialCard from "./TestimonialCard.astro";
 ---
 
-<section id="testimonials"></section>
+<section class="testimonials">
+  <div class="testimonials__grid">
+    <TestimonialCard name="Person One" text="This is a fantastic product!" />
+    <TestimonialCard
+      name="Person Two"
+      text="Absolutely love this, highly recommend!"
+    />
+    <TestimonialCard
+      name="Person Three"
+      text="The best decision I ever made!"
+    />
+    <TestimonialCard
+      name="Person Four"
+      text="A game-changer for our business."
+    />
+    <TestimonialCard
+      name="Person Five"
+      text="Incredible service and quality."
+    />
+    <TestimonialCard
+      name="Person Six"
+      text="I can't imagine going back to how things were before."
+    />
+  </div>
+</section>
 
-<style></style>
+<style>
+  .testimonials {
+    padding: 2rem;
+    background-color: #f4f4f4;
+  }
+
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+</style>
