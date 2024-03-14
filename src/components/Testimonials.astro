@@ -4,40 +4,93 @@ import TestimonialCard from "./TestimonialCard.astro";
 ---
 
 <section class="testimonials">
-  <div class="testimonials__grid">
-    <TestimonialCard name="Person One" text="This is a fantastic product!" />
-    <TestimonialCard
+  <div class="prev__btn arrow-container">
+    <p >&#10094;</p>
+  </div>
+  <div class="testimonials__grid__container">
+    <ul class="testimonials__grid">
+    <li class="testCard"><TestimonialCard name="Person One" text="This is a fantastic product!" /></li>
+    <li class="testCard"><TestimonialCard
       name="Person Two"
       text="Absolutely love this, highly recommend!"
-    />
-    <TestimonialCard
+    /></li>
+    <li class="testCard"><TestimonialCard
       name="Person Three"
       text="The best decision I ever made!"
-    />
-    <TestimonialCard
+    /></li>
+    <li class="testCard"><TestimonialCard
       name="Person Four"
       text="A game-changer for our business."
-    />
-    <TestimonialCard
+    /></li>
+    <li class="testCard"><TestimonialCard
       name="Person Five"
       text="Incredible service and quality."
-    />
-    <TestimonialCard
+    /></li>
+    <li class="testCard"><TestimonialCard
       name="Person Six"
       text="I can't imagine going back to how things were before."
-    />
+    /></li>
+    </ul>
   </div>
-</section>
+  <div class="next__btn arrow-container">
+    <p>&#10095;</p>
+  </div>
+  </section>
 
 <style>
   .testimonials {
+    display: flex;
+    justify-content: space-between;
     padding: 2rem;
     background-color: #f4f4f4;
+    gap: 1rem;
+  }
+  .testimonials__grid__container {
+    position: relative;
+    overflow: hidden;
   }
 
   .testimonials__grid {
-    display: grid;
+    display: flex;
+    width: 100%;
+    list-style: none;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    /* display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+    gap: 1.5rem; */
+  }
+  .testCard {
+    height: 100%;
+    width: 100%;
+    flex:  1 0 100%;
+  }
+ 
+  .arrow-container {
+    display: flex; 
+    align-items: center;
+    cursor: pointer;
   }
 </style>
+
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+
+const testContainer = document.querySelector(".testimonials__grid")
+const testCard = document.querySelector(".testCard")
+const prevButton = document.querySelector(".prev__btn")
+const nextButton = document.querySelector(".next__btn")
+
+nextButton.addEventListener('click', () => {
+    const testCardWidth = testCard.clientWidth;
+    testContainer.scrollLeft += testCardWidth;
+});
+
+prevButton.addEventListener('click', () => {
+    const testCardWidth = testCard.clientWidth;
+    testContainer.scrollLeft -= testCardWidth;
+});
+  });
+
+  </script>
