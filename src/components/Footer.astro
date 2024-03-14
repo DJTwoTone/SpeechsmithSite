@@ -2,6 +2,88 @@
 
 ---
 
-<footer></footer>
+<footer class="footer">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <div class="footer__social-links">
+    <a
+      href="https://www.facebook.com/yourpage"
+      class="footer__link"
+      aria-label="Facebook"><i class="fab fa-facebook-f"></i></a
+    >
+    <a
+      href="https://www.instagram.com/yourpage"
+      class="footer__link"
+      aria-label="Instagram"><i class="fab fa-instagram"></i></a
+    >
+    <a
+      href="https://twitter.com/yourpage"
+      class="footer__link"
+      aria-label="Twitter/X"><i class="fab fa-twitter"></i></a
+    >
+    <a
+      href="https://www.tiktok.com/@yourpage"
+      class="footer__link"
+      aria-label="TikTok"><i class="fab fa-tiktok"></i></a
+    >
+    <a
+      href="https://www.linkedin.com/in/yourpage"
+      class="footer__link"
+      aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a
+    >
+    <a
+      href="https://www.pinterest.com/yourpage"
+      class="footer__link"
+      aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a
+    >
+    <a
+      href="https://www.youtube.com/yourpage"
+      class="footer__link"
+      aria-label="YouTube"><i class="fab fa-youtube"></i></a
+    >
+    <!-- Naver Cafe and T Story Blog don't have Font Awesome icons. You might need custom icons or use text links. -->
+    <a
+      href="https://cafe.naver.com/yourpage"
+      class="footer__link"
+      aria-label="Naver Cafe">Naver Cafe</a
+    >
+    <a
+      href="https://story.kakao.com/ch/yourpage"
+      class="footer__link"
+      aria-label="T Story Blog">T Story Blog</a
+    >
+    <a
+      href="https://blueskyweb.org/@yourpage"
+      class="footer__link"
+      aria-label="Bluesky"><i class="fab fa-bluesky"></i></a
+    >
+    <!-- Assuming Bluesky gets an icon in the future -->
+  </div>
+</footer>
 
-<style></style>
+<style>
+  .footer {
+    background-color: #f4f4f4;
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  .footer__social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .footer__link {
+    color: #333; /* Vintage text color */
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .footer__link:hover,
+  .footer__link:focus {
+    color: #d3c095; /* A darker, vintage highlight color */
+  }
+</style>

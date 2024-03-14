@@ -1,0 +1,33 @@
+---
+// Define props for the component
+const { name, text } = Astro.props;
+---
+
+<div class="testimonial-card">
+  <p class="testimonial-card__text">"{{ text }}"</p>
+  <p class="testimonial-card__name">- {{ name }}</p>
+</div>
+
+<style>
+  .testimonial-card {
+    background-color: #eae7dc;
+    border: 2px solid #d3c095;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .testimonial-card__text {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .testimonial-card__name {
+    font-family: "Georgia", serif;
+    font-style: italic;
+    margin-top: 1rem;
+    text-align: right;
+    color: #555;
+  }
+</style>
