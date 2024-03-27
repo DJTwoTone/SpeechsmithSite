@@ -3,11 +3,14 @@
 ---
 
 <section id="hero">
-  <img
-    src="speechsmith-tv.png"
-    alt="Speechmith brand television"
-    id="speechsmith-tv"
-  />
+  <div class="hero_tv-holder">
+    <img
+      src="speechsmith-tv.png"
+      alt="Speechmith brand television"
+      id="speechsmith-tv"
+    />
+    <div class="hero_tv-shadow"></div>
+  </div>
 
   <h1 id="hero-heading">Polish Your Presentation, Perfect Your Pitch</h1>
   <div id="btn-area">
@@ -47,7 +50,6 @@
 
   #speechsmith-tv {
     height: 80%;
-    grid-area: tv;
     align-self: center;
     justify-self: center;
   }
@@ -60,12 +62,45 @@
     /* display: inline-block; */
     background-color: white;
     border-radius: 40px;
+    padding: 15px;
+    box-shadow: var(--black) 12px 12px 0 0;
   }
 
   #hero-area {
     grid-area: hero-area;
     align-content: center;
     justify-content: center;
+  }
+
+  #btn-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #hero-btn {
+    font-size: 1.5rem;
+    width: 15rem;
+    height: 5rem;
+    border-radius: 40px;
+    box-shadow: var(--black) 12px 12px 0 0;
+  }
+
+  .hero_tv-holder {
+    grid-area: tv;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .hero_tv-shadow {
+    width: 75%;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-self: flex-end;
+    margin-bottom: 20px;
   }
 
   /* .fire-glow {
