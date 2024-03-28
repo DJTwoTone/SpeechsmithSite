@@ -98,10 +98,10 @@ import TestimonialCard from "./TestimonialCard.astro";
     const testCardCount = document.querySelectorAll(
       ".testimonials__grid li"
     ).length;
-    const testCardWidth = testCard.clientWidth;
-    const fullWidth = testCardWidth * testCardCount;
 
     nextButton.addEventListener("click", () => {
+      const testCardWidth = testCard.clientWidth;
+      const fullWidth = testCardWidth * testCardCount;
       if (
         testContainer.scrollLeft ===
         testCardWidth * (testCardCount - 1) - 2
@@ -113,6 +113,8 @@ import TestimonialCard from "./TestimonialCard.astro";
     });
 
     prevButton.addEventListener("click", () => {
+      const testCardWidth = testCard.clientWidth;
+      const fullWidth = testCardWidth * testCardCount;
       if (testContainer.scrollLeft === 0) {
         testContainer.scrollLeft = fullWidth;
       } else {
