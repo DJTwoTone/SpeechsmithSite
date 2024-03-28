@@ -5,50 +5,51 @@ function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const unprocecedCards = [
+// const unprocecedCards = [
+const cards = [
 {
     name:"Individual Presentation Coaching",
     image:"services-1.png",
-    description:"Tailored one-on-one coaching sessions focused on enhancing your presentation skills, confidence, and clarity",
+    description:"Personalized coaching to boost presentation skills, confidence, and clarity",
     price:"150000",
-    cardx: "",
-    cardy: "",
-    mag1x: "",
-    mag1y: "",
-    mag2x: "",
-    mag2y: ""
+    cardx: "15px",
+    cardy: "41px",
+    mag1x: "13px",
+    mag1y: "-49px",
+    mag2x: "13px",
+    mag2y: "-35px"
 
 },
 {
     name:"Public Speaking Group Workshop",
     image:"services-2.png",
-    description:"Interactive workshops for groups aimed at improving public speaking skills, including practice and feedback sessions.",
+    description:"Group workshops for improving public speaking with practice and feedback",
     price:"300000",
-    cardx: "",
-    cardy: "",
-    mag1x: "",
-    mag1y: "",
-    mag2x: "",
-    mag2y: ""
+    cardx: "-35px",
+    cardy: "75px",
+    mag1x: "-30px",
+    mag1y: "-44px",
+    mag2x: "-13px",
+    mag2y: "-15px"
 
 },
 {
     name:"Virtual Presentation Skills Training",
     image:"services-3.png",
-    description:"Specialized training on how to effectively deliver presentations in a virtual setting, including technology use and audience engagement.",
+    description:"Training on delivering virtual presentations with tech use and engaging audiences",
     price:"120000",
-    cardx: "",
-    cardy: "",
-    mag1x: "",
+    cardx: "-50px",
+    cardy: "0",
+    mag1x: "-52px",
     mag1y: "",
-    mag2x: "",
+    mag2x: "-35px",
     mag2y: ""
 
 },
 {
-    name:"Storytelling in Business Communication",
+    name:"Storytelling in Business Presentations",
     image:"services-4.png",
-    description:"A session focused on integrating storytelling techniques into business presentations to make them more compelling and memorable.",
+    description:"Session on using storytelling in business presentations for impact.",
     price:"200000",
     cardx: "",
     cardy: "",
@@ -59,9 +60,9 @@ const unprocecedCards = [
 
 },
 {
-    name:"Presentation Design and Visual Aid Consultation",
+    name:"Presentation Design Consultation",
     image:"services-5.png",
-    description:"Expert advice on creating impactful presentation slides and visuals that complement and enhance your message.",
+    description:"Advice on creating effective slides and visuals to boost your message.",
     price:"100000",
     cardx: "",
     cardy: "",
@@ -74,7 +75,7 @@ const unprocecedCards = [
 {
     name:"Intensive Public Speaking Bootcamp",
     image:"services-6.png",
-    description:"A comprehensive, intensive training program covering all aspects of public speaking, from preparation to delivery.",
+    description:"Intensive training on all aspects of public speaking, from prep to delivery.",
     price:"1000000",
     cardx: "",
     cardy: "",
@@ -86,15 +87,15 @@ const unprocecedCards = [
 }
 ]
 
-const cards = unprocecedCards.map(card => {
-  card.cardx = `${randomNumber(-70, 20)}px`
-  card.cardy = `${randomNumber(-20, 70)}px`
-  card.mag1x = `${randomNumber(-20, 20)}px`;
-  card.mag1y = `${randomNumber(-20, 20)}px`;
-  card.mag2x = `${randomNumber(-20, 20)}px`;
-  card.mag2y = `${randomNumber(-20, 20)}px`;
-  return card
-})
+// const cards = unprocecedCards.map(card => {
+//   card.cardx = `${randomNumber(-70, 20)}px`
+//   card.cardy = `${randomNumber(-20, 70)}px`
+//   card.mag1x = `${randomNumber(-20, 20)}px`;
+//   card.mag1y = `${randomNumber(-20, 20)}px`;
+//   card.mag2x = `${randomNumber(-20, 20)}px`;
+//   card.mag2y = `${randomNumber(-20, 20)}px`;
+//   return card
+// })
 
 
 ---
@@ -129,9 +130,10 @@ const cards = unprocecedCards.map(card => {
   #services {
     position: relative;
     width: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* flex-wrap: wrap;
+    justify-content: space-around; */
     background-image: url(/blackboard-bg.png);
     background-repeat: repeat;
     background-size: 30%;

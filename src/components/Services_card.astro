@@ -28,11 +28,13 @@ console.log(name, image, cardx, mag1y);
     <div id="mag2" class="mag"></div>
   </div>
   <div class="card-content">
-    <h3 class="service-name">{name}</h3>
-    <div class="service-body">
-      <img src={image} alt={name} class="service-image" />
-      <p class="service-description">{description}</p>
+    <div id="title-holder">
+      <h3 class="service-name">{name}</h3>
     </div>
+    <div id="img-holder">
+      <img src={image} alt={name} class="service-image" />
+    </div>
+    <p class="service-description">{description}</p>
     <p class="service-price">₩{formattedPrice}</p>
   </div>
 </div>
@@ -44,24 +46,13 @@ console.log(name, image, cardx, mag1y);
     color: var(--black);
     border: 8px solid var(--red); /* For the neo-brutalist effect */
     position: relative;
+    padding: 100px;
     margin: 50px;
     width: 400px; /* Adjust as needed */
     transform-origin: left top;
     border-radius: 25px;
     left: var(--cardx);
     top: var(--cardy);
-  }
-
-  .service-name {
-    color: var(--yellow); /* Adjust colors as needed */
-    font-size: 1.5rem;
-    margin-left: 40px;
-    margin-bottom: 25px;
-    font-weight: 700;
-  }
-
-  .card-content {
-    padding: 15px;
   }
 
   #mag-holder {
@@ -75,12 +66,14 @@ console.log(name, image, cardx, mag1y);
 
   .mag {
     position: absolute;
-    height: 40px;
+    height: 60px;
     aspect-ratio: 1;
     border-radius: 50%;
     border: 5px solid var(--yellow);
     box-shadow: 4px 4px 8px 0 var(--black);
     background-color: white;
+    background-image: url(/SpeechsmithsForgeLogoV1-2.svg);
+    background-size: cover;
   }
 
   #mag1 {
@@ -90,17 +83,56 @@ console.log(name, image, cardx, mag1y);
 
   #mag2 {
     right: var(--mag2x);
-    bottom: var(--mag2y);
+    top: var(--mag2y);
   }
 
-  .service-body {
+  .card-content {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      "title title"
+      "img description"
+      "img description"
+      "img price";
+  }
+
+  #title-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    grid-area: title;
+  }
+
+  .service-name {
+    color: var(--yellow); /* Adjust colors as needed */
+    font-size: 1.5rem;
+    margin-left: 30px;
+    margin-bottom: -15px;
+    line-height: 2.2rem;
+    font-weight: 900;
+    text-align: left;
+  }
+
+  /* .service-body {
     display: flex;
     gap: 30px;
+  } */
+
+  #img-holder {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right: 0;
+    grid-area: img;
   }
 
   .service-image {
-    width: 120px; /* Adjust as needed */
-    height: 120px; /* Keep aspect ratio */
+    width: 8rem; /* Adjust as needed */
+    aspect-ratio: 1;
+    /* height: 120px; Keep aspect ratio */
     border-radius: 25px;
     box-shadow: 12px 12px 0 0 var(--orange);
   }
@@ -113,14 +145,16 @@ console.log(name, image, cardx, mag1y);
     padding: 10px 10px 10px 15px;
     background-color: var(--beige);
     font-size: 1rem;
+    grid-area: description;
   }
 
   .service-price {
     color: var(--yellow);
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-align: center;
     margin-top: 25px;
+    grid-area: price;
   }
 
   /* Responsive design */
