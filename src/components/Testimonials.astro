@@ -5,37 +5,52 @@ import TestimonialCard from "./TestimonialCard.astro";
 
 <section class="testimonials">
   <div class="prev__btn arrow-container">
-    <p >&#10094;</p>
+    <p>&#10094;</p>
   </div>
   <div class="testimonials__grid__container">
     <ul class="testimonials__grid">
-    <li class="testCard"><TestimonialCard name="Person One" text="This is a fantastic product!" /></li>
-    <li class="testCard"><TestimonialCard
-      name="Person Two"
-      text="Absolutely love this, highly recommend!"
-    /></li>
-    <li class="testCard"><TestimonialCard
-      name="Person Three"
-      text="The best decision I ever made!"
-    /></li>
-    <li class="testCard"><TestimonialCard
-      name="Person Four"
-      text="A game-changer for our business."
-    /></li>
-    <li class="testCard"><TestimonialCard
-      name="Person Five"
-      text="Incredible service and quality."
-    /></li>
-    <li class="testCard"><TestimonialCard
-      name="Person Six"
-      text="I can't imagine going back to how things were before."
-    /></li>
+      <li class="testCard">
+        <TestimonialCard
+          name="Person One"
+          text="This is a fantastic product!"
+        />
+      </li>
+      <li class="testCard">
+        <TestimonialCard
+          name="Person Two"
+          text="Absolutely love this, highly recommend!"
+        />
+      </li>
+      <li class="testCard">
+        <TestimonialCard
+          name="Person Three"
+          text="The best decision I ever made!"
+        />
+      </li>
+      <li class="testCard">
+        <TestimonialCard
+          name="Person Four"
+          text="A game-changer for our business."
+        />
+      </li>
+      <li class="testCard">
+        <TestimonialCard
+          name="Person Five"
+          text="Incredible service and quality."
+        />
+      </li>
+      <li class="testCard">
+        <TestimonialCard
+          name="Person Six"
+          text="I can't imagine going back to how things were before."
+        />
+      </li>
     </ul>
   </div>
   <div class="next__btn arrow-container">
     <p>&#10095;</p>
   </div>
-  </section>
+</section>
 
 <style>
   .testimonials {
@@ -64,11 +79,11 @@ import TestimonialCard from "./TestimonialCard.astro";
   .testCard {
     height: 100%;
     width: 100%;
-    flex:  1 0 100%;
+    flex: 1 0 100%;
   }
- 
+
   .arrow-container {
-    display: flex; 
+    display: flex;
     align-items: center;
     cursor: pointer;
   }
@@ -76,21 +91,33 @@ import TestimonialCard from "./TestimonialCard.astro";
 
 <script>
   window.addEventListener("DOMContentLoaded", (event) => {
-
-const testContainer = document.querySelector(".testimonials__grid")
-const testCard = document.querySelector(".testCard")
-const prevButton = document.querySelector(".prev__btn")
-const nextButton = document.querySelector(".next__btn")
-
-nextButton.addEventListener('click', () => {
+    const testContainer = document.querySelector(".testimonials__grid");
+    const testCard = document.querySelector(".testCard");
+    const prevButton = document.querySelector(".prev__btn");
+    const nextButton = document.querySelector(".next__btn");
+    const testCardCount = document.querySelectorAll(
+      ".testimonials__grid li"
+    ).length;
     const testCardWidth = testCard.clientWidth;
-    testContainer.scrollLeft += testCardWidth;
-});
+    const fullWidth = testCardWidth * testCardCount;
 
-prevButton.addEventListener('click', () => {
-    const testCardWidth = testCard.clientWidth;
-    testContainer.scrollLeft -= testCardWidth;
-});
+    nextButton.addEventListener("click", () => {
+      if (
+        testContainer.scrollLeft ===
+        testCardWidth * (testCardCount - 1) - 2
+      ) {
+        testContainer.scrollLeft = 0;
+      } else {
+        testContainer.scrollLeft += testCardWidth;
+      }
+    });
+
+    prevButton.addEventListener("click", () => {
+      if (testContainer.scrollLeft === 0) {
+        testContainer.scrollLeft = fullWidth;
+      } else {
+        testContainer.scrollLeft -= testCardWidth;
+      }
+    });
   });
-
-  </script>
+</script>
