@@ -1,0 +1,94 @@
+---
+// JavaScript for dynamic behavior (client-side interactivity)
+let circleSize = 100; // Starting circle size
+let circleColor = 'blue'; // Starting circle color
+
+if (typeof window !== 'undefined') {
+  window.addEventListener('scroll', () => {
+    const scrolledHeight = window.scrollY;
+    
+    // Adjust these thresholds based on your page's layout and content length
+    if (scrolledHeight < 300) { // Part 1 scrolling range
+      circleSize = 100;
+      circleColor = 'blue';
+    } else if (scrolledHeight >= 300 && scrolledHeight < 600) { // Part 2
+      circleSize = 150;
+      circleColor = 'orange';
+    } else if (scrolledHeight >= 600) { // Part 3
+      circleSize = 200;
+      circleColor = 'green';
+    }
+
+    document.querySelector('.circle').style.width = `${circleSize}px`;
+    document.querySelector('.circle').style.height = `${circleSize}px`;
+    document.querySelector('.circle').style.backgroundColor = circleColor;
+  });
+}
+---
+
+<style>
+.container {
+  display: flex;
+  align-items: start;
+}
+
+.circle {
+  min-width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: fixed;
+  left: 30px;
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+.process {
+  margin-left: 150px;
+}
+
+.part {
+  margin-bottom: 50px;
+}
+</style>
+
+<h2>Our Process</h2>
+<div class="container">
+  <div class="circle" style={`background-color: ${circleColor}; width: ${circleSize}px; height: ${circleSize}px;`}></div>
+  <div class="process">
+    <!-- Part 1 -->
+    <div class="part">
+      <h3>Part 1</h3>
+      <h4>Step 1</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h4>Step 2</h4>
+      <p>Etiam vitae nisi sit amet lorem accumsan porta.</p>
+      <h4>Step 3</h4>
+      <p>Nunc in felis et metus iaculis ullamcorper.</p>
+      <h4>Step 4</h4>
+      <p>Morbi non ex id sapien sollicitudin molestie quis id lorem.</p>
+    </div>
+    <!-- Part 2 -->
+    <div class="part">
+      <h3>Part 2</h3>
+      <h4>Step 1</h4>
+      <p>Curabitur cursus, mauris vitae pharetra maximus, orci lacus fermentum nisl, non sollicitudin mi dolor non odio.</p>
+      <h4>Step 2</h4>
+      <p>Praesent sed libero vel orci aliquam viverra at ac felis.</p>
+      <h4>Step 3</h4>
+      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+      <h4>Step 4</h4>
+      <p>Nulla facilisi. Duis aliquet egestas purus in blandit.</p>
+    </div>
+    <!-- Part 3 -->
+    <div class="part">
+      <h3>Part 3</h3>
+      <h4>Step 1</h4>
+      <p>Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+      <h4>Step 2</h4>
+      <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+      <h4>Step 3</h4>
+      <p>Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.</p>
+      <h4>Step 4</h4>
+      <p>Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+    </div>
+  </div>
+</div>
